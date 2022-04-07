@@ -1,9 +1,16 @@
-resource "azurerm_resource_group" "example" {
-  name     = "Terraform-rg"
-  location = "east us"
+module "VM-vnetModule"{
+  source = "./VM-vnetModule"
 }
-
 module "VMModule"{
-
-  source ="./VMModule"
+  source = "./VM-vnetModule"
 }
+module "AKSModule"{
+  source = "./VM-vnetModule"
+}
+module "SQLModule"{
+  source = "./VM-vnetModule"
+}
+module "DNSModule"{
+  source = "./VM-vnetModule"
+}
+
